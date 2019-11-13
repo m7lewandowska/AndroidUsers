@@ -14,7 +14,7 @@ class UserController(activity: MainActivity, userModel: UserModel, dtbConnect: D
     init {
         activity.BTN1_ADD.setOnClickListener({ btnClickAdd() })
         activity.BTN2_SHOW.setOnClickListener({ btnClickShow() })
-        activity.BTN3_DEL.setOnClickListener({btnClickDel()})
+        //activity.BTN3_DEL.setOnClickListener({btnClickDel()})
     }
 
     //Dodanie jednego usera do bazy oraz rozszerzenie listView_users o jednego usera

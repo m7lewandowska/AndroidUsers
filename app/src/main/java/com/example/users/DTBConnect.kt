@@ -49,6 +49,10 @@ class DTBConnect(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nu
         db.close()
     }
 
+    fun editUserFromDTB(firstName: String, lastName: String) {
+        val db = this.writableDatabase
+    }
+
     fun delUserFromDTB(firstName: String, lastName: String){
 
         val db = this.writableDatabase
