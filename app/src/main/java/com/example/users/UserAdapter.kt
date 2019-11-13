@@ -45,7 +45,7 @@ class UserAdapter(private val context: Context, private val dataSource: ArrayLis
 
         //Button edit on listView
         val editButton = rowView.findViewById<Button>(R.id.buton_edit)
-        editButton.setOnClickListener {changeActivity(context,user.id.toString())}
+        editButton.setOnClickListener {changeActivity(context,user.userName, user.userSurname)}
 
         //Button del on listView
         val delButton = rowView.findViewById<Button>(R.id.buton_del)
@@ -71,10 +71,11 @@ class UserAdapter(private val context: Context, private val dataSource: ArrayLis
     }*/
 
      companion object {
-         fun changeActivity(context: Context,idView: String) {
+         fun changeActivity(context: Context,usernameView: String,usersurnameView: String) {
 
              val intent = Intent(context, UserEditActivity::class.java)
-             intent.putExtra("idUser", idView)
+             intent.putExtra("UserName", usernameView)
+             intent.putExtra("UserSurname", usersurnameView)
              context.startActivity(intent)
 
          }

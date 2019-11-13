@@ -49,6 +49,31 @@ class DTBConnect(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nu
         db.close()
     }
 
+    fun getUserById(id: String): User
+    {
+        val query = "SELECT * FROM $TABLE_NAME"
+
+        val db = this.writableDatabase
+        val cursor = db.rawQuery(query, null,null)
+
+        var firstNameUser = ""
+        var surnameNameUser = ""
+        while(cursor.moveToNext())
+        {
+            val iddtb = Integer.parseInt(cursor.getString(0))
+            if(iddtb.toString() == id) {
+                firstNameUser = (cursor.getString(1))
+                surnameNameUser = (cursor.getString(2))
+            }
+        }
+
+        val user= User(firstNameUser.toString(), surnameNameUser.toString())
+
+        cursor.close()
+        db.close()
+        return user
+    }
+
     fun editUserFromDTB(firstName: String, lastName: String) {
         val db = this.writableDatabase
     }
